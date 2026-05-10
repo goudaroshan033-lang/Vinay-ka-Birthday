@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VINAY_QUICK_GAME</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #000; color: #fff; font-family: 'Arial', sans-serif; text-align: center; overflow: hidden; }
+        
+        .layer { display: none; height: 100vh; width: 100vw; flex-direction: column; justify-content: center; align-items: center; padding: 20px; }
+        .active { display: flex; }
+
+        .box { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 20px; border: 2px solid #fff; width: 90%; max-width: 400px; }
+        input { padding: 15px; width: 100%; border-radius: 10px; border: none; margin-top: 15px; font-size: 1.2rem; text-align: center; }
+        button { padding: 15px 30px; margin-top: 20px; background: #00ff00; color: #000; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; width: 100%; }
+        
+        #l1 { background: #000; color: #0f0; }
+        #l2 { background: #ffcc00; color: #000; }
+        #l3 { background: #ff5722; color: #fff; }
+        #l4 { background: #2196f3; color: #fff; }
+        #l5 { background: linear-gradient(45deg, #ff0080, #7928ca); color: #fff; }
+
+        .vinay-img { width: 200px; border: 5px solid gold; border-radius: 20px; margin-bottom: 20px; animation: bounce 1s infinite alternate; }
+        @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-20px); } }
+    </style>
+</head>
+<body>
+
+    <!-- Layer 1: Start -->
+    <div id="l1" class="layer active">
+        <div class="box">
+            <h2 style="color: red;">[ SYSTEM LOCKED ]</h2>
+            <p style="margin-top: 10px;">Vinay, tera data hack ho gaya hai!</p>
+            <button onclick="next(1)">UNLOCK KARO</button>
+        </div>
+    </div>
+
+    <!-- Layer 2: Asaan Puzzle 1 -->
+    <div id="l2" class="layer">
+        <div class="box">
+            <h2>Challenge 1</h2>
+            <p>10 + 10 kitne hote hain?</p>
+            <input type="number" id="ans1" placeholder="Answer likho...">
+            <button onclick="check(1, '20')">NEXT ➡️</button>
+        </div>
+    </div>
+
+    <!-- Layer 3: Asaan Puzzle 2 -->
+    <div id="l3" class="layer">
+        <div class="box">
+            <h2>Challenge 2</h2>
+            <p>Vinay ka favorite game kaunsa hai?</p>
+            <p>(Hint: F se shuru hota hai)</p>
+            <input type="text" id="ans2" placeholder="Game ka naam...">
+            <button onclick="check(2, 'free fire')">NEXT ➡️</button>
+        </div>
+    </div>
+
+    <!-- Layer 4: Asaan Puzzle 3 -->
+    <div id="l4" class="layer">
+        <div class="box">
+            <h2>Challenge 3</h2>
+            <p>Aaj kiska Birthday hai?</p>
+            <input type="text" id="ans3" placeholder="Naam likho...">
+            <button onclick="check(3, 'vinay')">NEXT ➡️</button>
+        </div>
+    </div>
+
+    <!-- Layer 5: Final Surprise -->
+    <div id="l5" class="layer">
+        <img class="vinay-img" src="https://thumbs2.imgbox.com/d4/65/GDqwiddZ_t.jpg" alt="Vinay">
+        <h1 style="font-size: 2.5rem;">HAPPY BIRTHDAY <br> VINAY! 🎂</h1>
+        <p style="margin-top: 10px; font-weight: bold;">Basti ka Hasti, Sabka Pyara Noobda! 😂</p>
+        <p style="background: white; color: black; padding: 10px; border-radius: 10px; margin-top: 20px;">Ab jaldi se Party do! 🍕🔥</p>
+    </div>
+
+    <script>
+        function next(curr) {
+            document.getElementById('l' + curr).classList.remove('active');
+            document.getElementById('l' + (curr + 1)).classList.add('active');
+        }
+
+        function check(n, correct) {
+            let val = document.getElementById('ans' + n).value.toLowerCase().trim();
+            if (val == correct) {
+                next(n + 1);
+            } else {
+                alert("Itna asaan bhi galat? Dubara try kar! 😂");
+            }
+        }
+    </script>
+</body>
+              </html>
+
